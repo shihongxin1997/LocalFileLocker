@@ -242,6 +242,17 @@ namespace LocalFileLocker
             table.SetColumnSpan(txtLog, 3);
 
             Controls.Add(table);
+
+            // 窗体关闭（点右上角 X）后结束整个应用。
+            FormClosed += new FormClosedEventHandler(MainForm_FormClosed);
+        }
+
+        /// <summary>窗体关闭后立即结束整个应用。本工具只有一个窗口，关闭窗口即退出进程；
+        /// 用 Environment.Exit 立即终止，避免控制台子系统（隐藏的控制台窗口）在
+        /// Windows Server 2008 R2 等旧系统上等待控制台宿主进程而卡住不退出。</summary>
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Environment.Exit(0);
         }
 
         /// <summary>“文件/文件夹”按钮点击：按类型调用 PickFiles 选择源文件（夹）并刷新显示。</summary>

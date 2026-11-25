@@ -74,6 +74,7 @@ namespace LocalFileLocker
                 if (files.Count == 0)
                 {
                     new MainForm().ShowDialog();
+                    Environment.Exit(0);
                     return;
                 }
             }

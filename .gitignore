@@ -378,3 +378,5 @@ $RECYCLE.BIN/
 
 # Office / WPS 临时文件
 ~$*
+
+.vscode
